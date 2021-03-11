@@ -71,7 +71,11 @@ local function MeasureFilter(Self,Event,Message) -- Catch Selected / Spawned obj
 		gY = string.match(clearmsg, "Y: (-?%d*\.?%d*)")
 		gZ = string.match(clearmsg, "Z: (-?%d*\.?%d*)")
 	end
-
+	if string.match(Message, "Map:") then
+		gX = string.match(clearmsg, "X: (%-?%d*%.?%d*)")
+		gY = string.match(clearmsg, "Y: (-?%d*\.?%d*)")
+		gZ = string.match(clearmsg, "Z: (-?%d*\.?%d*)")
+	end
 end
 
 ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", MeasureFilter)
